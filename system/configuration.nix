@@ -74,6 +74,11 @@
   #   ];
   # };
 
+  # we expect to run on hidpi machines
+  hardware.video.hidpi.enable = true;
+
+  security.sudo.wheelNeedsPassword = false;
+  
   users.users.vptr = {
     isNormalUser = true;
     extraGroups = ["wheel"];
@@ -106,6 +111,28 @@
     enable = true;
     passwordAuthentication = true;
     permitRootLogin = "no";
+  };
+
+  services.xserver = {
+    enable = true;
+    layout = "us";
+    dpi = 220;
+ 
+    desktopManager = {
+      xterm.enable = false;
+    };
+
+    displayManager = {
+      defaultSession = "none+i3";
+      
+      sessionCommands = ''
+        ${pkgs.xorg.xset}/bin/xset r rate 200 30
+      '';
+    };
+
+    windowManager = {
+      i3.enable = true;
+    };
   };
 
   # Open ports in the firewall.
