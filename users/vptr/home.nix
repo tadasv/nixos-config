@@ -29,4 +29,7 @@
 	userName = "Tadas Vilkeliskis";
 	userEmail = "vilkeliskis.t@gmail.com";
   };
+
+  xdg.enable = true;
+  xdg.configFile."i3/config".text = builtins.readFile ./i3;
 }

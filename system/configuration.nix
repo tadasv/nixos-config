@@ -117,14 +117,15 @@
     enable = true;
     layout = "us";
     dpi = 220;
+    autorun = false;
  
-    desktopManager = {
-      xterm.enable = false;
-    };
-
     displayManager = {
       defaultSession = "none+i3";
-      
+
+      startx = {
+        enable = true;
+      };
+
       sessionCommands = ''
         ${pkgs.xorg.xset}/bin/xset r rate 200 30
       '';
