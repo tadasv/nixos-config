@@ -74,3 +74,7 @@ vm/copy:
 		--exclude='*.iso' \
 		--exclude='*.img' \
 		$(MAKEFILE_DIR)/ $(NIXUSER)@$(NIXADDR):./nixos-config
+
+vm/secrets:
+	# copy ssh keys
+	scp -P$(NIXPORT) $(SSH_OPTIONS) ~/.ssh/* $(NIXUSER)@$(NIXADDR):.ssh/
