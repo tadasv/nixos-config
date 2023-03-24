@@ -78,3 +78,6 @@ vm/copy:
 vm/secrets:
 	# copy ssh keys
 	scp -P$(NIXPORT) $(SSH_OPTIONS) ~/.ssh/* $(NIXUSER)@$(NIXADDR):.ssh/
+
+vm/ssh:
+	ssh $(SSH_OPTIONS) -p$(NIXPORT) $(NIXUSER)@$(NIXADDR)
