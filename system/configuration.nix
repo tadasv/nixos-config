@@ -37,12 +37,6 @@
   #   useXkbConfig = true; # use xkbOptions in tty.
   # };
 
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-
-
-  
-
   # Configure keymap in X11
   # services.xserver.layout = "us";
   # services.xserver.xkbOptions = {
@@ -50,29 +44,8 @@
   #   "caps:escape" # map caps to escape.
   # };
 
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
-
-  # Enable sound.
-  # sound.enable = true;
-  # hardware.pulseaudio.enable = true;
-
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  # users.users.vptr = {
-  #   isNormalUser = true;
-  #   extraGroups = [ "wheel" ];
-  #   initialPassword = "password";
-
-  #   packages = with pkgs; [
-  #     vim
-  #     tmux
-  #     htop
-  #     curl
-  #   ];
-  # };
 
   # we expect to run on hidpi machines
   hardware.video.hidpi.enable = true;
@@ -112,7 +85,7 @@
   services.xserver = {
     enable = true;
     layout = "us";
-    dpi = 220;
+    # dpi = 220;
     autorun = false;
  
     displayManager = {
