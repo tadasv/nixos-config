@@ -81,3 +81,6 @@ vm/secrets:
 
 vm/ssh:
 	ssh $(SSH_OPTIONS) -p$(NIXPORT) $(NIXUSER)@$(NIXADDR)
+
+switch:
+	sudo nixos-rebuild switch --flake .\#

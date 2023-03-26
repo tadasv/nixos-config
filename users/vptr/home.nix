@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-  programs.home-manager.enable = true;
+  # programs.home-manager.enable = true;
 
   home.stateVersion = "22.11";
   home.username = "vptr";
@@ -14,6 +14,7 @@
 	tree
 	watch
 	jq
+	chromium
   ];
 
   home.sessionVariables = {
