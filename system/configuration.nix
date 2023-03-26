@@ -45,7 +45,7 @@
   # };
 
   # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  services.xserver.libinput.enable = true;
 
   # we expect to run on hidpi machines
   hardware.video.hidpi.enable = true;
@@ -74,6 +74,8 @@
   # };
 
   # List services that you want to enable:
+
+  services.qemuGuest.enable = true;
 
   # Enable the OpenSSH daemon.
   services.openssh = {

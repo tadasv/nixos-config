@@ -15,6 +15,7 @@
     watch
     jq
     chromium
+    firefox
     alacritty
   ];
 
