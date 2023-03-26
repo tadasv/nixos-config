@@ -8,14 +8,14 @@
 
   home.packages = with pkgs; [
     vim
-	git
-	tmux
-	htop
-	tree
-	watch
-	jq
-	chromium
-	alacritty
+    git
+    tmux
+    htop
+    tree
+    watch
+    jq
+    chromium
+    alacritty
   ];
 
   home.sessionVariables = {
@@ -28,9 +28,11 @@
 
   programs.git = {
     enable = true;
-	userName = "Tadas Vilkeliskis";
-	userEmail = "vilkeliskis.t@gmail.com";
+    userName = "Tadas Vilkeliskis";
+    userEmail = "vilkeliskis.t@gmail.com";
   };
+
+  home.file.".xinitrc".source = ./xinitrc;
 
   xdg.enable = true;
   xdg.configFile."i3/config".text = builtins.readFile ./i3;
