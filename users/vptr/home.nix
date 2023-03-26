@@ -15,6 +15,7 @@
 	watch
 	jq
 	chromium
+	alacritty
   ];
 
   home.sessionVariables = {
