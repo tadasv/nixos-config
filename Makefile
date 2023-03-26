@@ -15,7 +15,18 @@ vm/start0:
 	qemu-system-x86_64 -enable-kvm -nic user,ipv6=off,model=e1000,hostfwd=tcp::$(NIXPORT)-:22 -boot once=d -cdrom iso/nixos-minimal-22.11.iso -m 8G -cpu host -smp 8 -hda nixos-test.img
 
 vm/start:
-	qemu-system-x86_64 -boot c -vga virtio -netdev user,id=hostnet0,hostfwd=tcp::$(NIXPORT)-:22 -device virtio-net-pci,romfile=,netdev=hostnet0 -device VGA,vgamem_mb=128 -enable-kvm -bios /usr/share/ovmf/OVMF.fd -m 8G -cpu host -smp 8 -hda nixos-test.img
+	qemu-system-x86_64 -boot c \
+		-vga virtio \
+		-device virtio-vga,virgl=on \
+		-device VGA,vgamem_mb=128 \
+		-netdev user,id=hostnet0,hostfwd=tcp::$(NIXPORT)-:22 \
+		-device virtio-net-pci,romfile=,netdev=hostnet0 \
+		-enable-kvm \
+		-bios /usr/share/ovmf/OVMF.fd \
+		-m 8G -cpu host \
+		-smp 8 \
+		-hda nixos-test.img \
+	;
 	#qemu-system-x86_64 -vga virtio -netdev user,id=hostnet0 -device virtio-net-pci,romfile=,netdev=hostnet0 -device VGA,vgamem_mb=128 -enable-kvm -bios /usr/share/ovmf/OVMF.fd -nic user,ipv6=off,model=e1000,hostfwd=tcp::$(NIXPORT)-:22 -m 8G -cpu host -smp 8 -hda nixos-test.img
 	#qemu-system-x86_64 -vga virtio -netdev user,id=hostnet0 -device virtio-net-pci,romfile=,netdev=hostnet0 -device VGA,vgamem_mb=128 -enable-kvm -bios /usr/share/ovmf/OVMF.fd -nic user,ipv6=off,model=e1000,hostfwd=tcp::$(NIXPORT)-:22 -boot once=d -cdrom nixos-minimal-22.11.iso -m 8G -cpu host -smp 8 -hda nixos-test.img
 	
